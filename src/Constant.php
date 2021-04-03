@@ -52,13 +52,13 @@ class Constant
         $title = $constObj->getDocComments();
         $keyArr = array_keys($title);
         $value = $constObj->getConstants();
-        $newArr = array_map(function($v1,$v2,$v3){
+        $newArr = array_map(function ($v1, $v2, $v3) {
             return [
-                'key' => $v1,
-                'title' => $v2,
                 'value' => $v3,
+                'key'   => $v1,
+                'title' => $v2,
             ];
-        },$keyArr,$title,$value);
+        }, $keyArr, $title, $value);
         return $newArr;
     }
 }
