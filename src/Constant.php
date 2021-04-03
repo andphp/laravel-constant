@@ -50,13 +50,15 @@ class Constant
     {
         $constObj = new ConstDoc($this->class);
         $title = $constObj->getDocComments();
+        $keyArr = array_keys($title);
         $value = $constObj->getConstants();
-        $newArr = array_map(function($v1,$v2){
+        $newArr = array_map(function($v1,$v2,$v3){
             return [
-                'title' => $v1,
-                'value' => $v2,
+                'key' => $v1,
+                'title' => $v2,
+                'value' => $v3,
             ];
-        },$title,$value);
+        },$keyArr,$title,$value);
         return $newArr;
     }
 }
